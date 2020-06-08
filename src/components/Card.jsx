@@ -6,7 +6,7 @@ class Card extends Component {
     const title = "Card Title";
     return (
       <div className="Card">
-        { this.props.title }
+        { this.props.name }
         <br></br>
         { this.props.likes >= 0 ? (
           <sup>likes: { this.props.likes }</sup>

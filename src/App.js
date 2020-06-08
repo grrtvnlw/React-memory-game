@@ -6,16 +6,25 @@ import Card from './components/Card'
 import './App.css';
 
 function App() {
+  const projects = [
+    { name: 'Project Awesome', likes: 10 },
+    { name: 'Project Awesomest', likes: 8 },
+    { name: 'The REAL Project Awesome', likes: 4 },
+    { name: 'Project Sparkles', likes: 6 },
+    { name: 'BreakfastTime', likes: 2 },
+    { name: 'Eggz.io', likes: 1 },
+    { name: 'MakinBaconPancakes', likes: 9001 },
+  ];
+
   return (
     <div className="App">
-      <Card title="Project Awesome" likes={0}></Card>
-      <Card title="Project Awesomest"></Card>
-      <Card title="The REAL Project Awesome"></Card>
-      <Card title="The REAL REAL Project Awesome"></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
+      { projects.map((project, index) => {
+        return <Card
+        name={project.name}
+        key={index}
+        likes={project.likes}
+        ></Card>
+      })}
     </div>
   );
 }
