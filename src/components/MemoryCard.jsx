@@ -6,7 +6,14 @@ class MemoryCard extends Component {
     return (
       <div>
         <div className="MemoryCard">
-          <img src="https://www.digitalcrafts.com/img/logo-wrench-white.png"></img>
+          <div className="MemoryCard_inner">
+            <div className="MemoryCard_back">
+              <img src="https://www.digitalcrafts.com/img/logo-wrench-white.png"></img>
+            </div>
+            <div className="MemoryCard_front">
+              ∆
+            </div>
+          </div>
         </div>
       </div>
     )
