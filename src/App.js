@@ -37,7 +37,8 @@ class App extends Component {
 
     this.state = { 
       deck: generateDeck(),
-      pickedCards: []
+      pickedCards: [],
+      won: false
     }
   }
 
@@ -69,6 +70,8 @@ class App extends Component {
     }
 
     this.setState({ deck: newDeck, pickedCards: newPickedCards })
+
+    this.gameOver(newDeck)
   }
 
   unflipCards(card1Index, card2Index) {
@@ -88,7 +91,23 @@ class App extends Component {
     });
 
     this.setState({ deck: newDeck });
-}
+  }
+
+  gameOver = (deck) => {
+    if (deck.filter((card) => {
+      return !card.isFlipped;
+    }).length === 0) {
+      this.setState({ won: true });
+    }
+  }
+
+  handleClick = () => {
+    this.setState({ 
+      deck: generateDeck(),
+      pickedCards: [],
+      won: false
+    }) 
+  }
 
   render() {
     let cardsJSX = this.state.deck.map((card, index) => {
@@ -112,6 +131,9 @@ class App extends Component {
         </div>
         <div className="row">
           { cardsJSX.slice(12,16) }
+        </div>
+        <div className="gameButton" >
+          { this.state.won && <button onClick={ this.handleClick }>Play again</button> }  
         </div>
       </div>
     )
