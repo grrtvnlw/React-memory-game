@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './MemoryCard.css';
 
 class MemoryCard extends Component {
-
   constructor() {
     super()
 
