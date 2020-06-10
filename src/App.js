@@ -42,7 +42,6 @@ class App extends Component {
   }
 
   pickCard(cardIndex) {
-    console.log('hello')
     if (this.state.deck[cardIndex].isFlipped) {
       return;
     }
