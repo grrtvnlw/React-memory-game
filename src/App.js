@@ -3,7 +3,6 @@ import './App.css';
 import MemoryCard from './components/MemoryCard';
 
 function generateDeck() {
-  // const symbols = [∆, ß, £, §, •, $, ≠, ø];
   let symbols = ['🚀', '🍺', '💻', '🥑', '🍄', '🍀', '🦊', '💜'];
   let deck = [];
   for (let i = 0; i < 16; i++) {
@@ -12,7 +11,6 @@ function generateDeck() {
       symbol: symbols[i%8]
     })
   }
-
   return shuffle(deck);
 }
 
@@ -38,7 +36,8 @@ class App extends Component {
     this.state = { 
       deck: generateDeck(),
       pickedCards: [],
-      won: false
+      won: false,
+      count: 0
     }
   }
 
@@ -69,7 +68,11 @@ class App extends Component {
       newPickedCards = [];
     }
 
-    this.setState({ deck: newDeck, pickedCards: newPickedCards })
+    let newCount = this.state.count;
+    newCount++
+
+    this.setState({ deck: newDeck, pickedCards: newPickedCards, count: newCount });
+    console.log(this.state.count)
 
     this.gameOver(newDeck)
   }
@@ -90,7 +93,9 @@ class App extends Component {
       return card;
     });
 
-    this.setState({ deck: newDeck });
+    this.setState({ 
+      deck: newDeck
+    });
   }
 
   gameOver = (deck) => {
@@ -105,7 +110,8 @@ class App extends Component {
     this.setState({ 
       deck: generateDeck(),
       pickedCards: [],
-      won: false
+      won: false,
+      count: 0
     }) 
   }
 
@@ -119,6 +125,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Memory Game</h1>
           <h4>Match cards to win</h4>
+          <h5>Turns: {Math.ceil(this.state.count / 2)}</h5>
         </header>
         <div className="row">
           { cardsJSX.slice(0,4) }
