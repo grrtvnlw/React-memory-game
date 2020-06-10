@@ -4,7 +4,7 @@ import MemoryCard from './components/MemoryCard';
 
 function generateDeck() {
   // const symbols = [∆, ß, £, §, •, $, ≠, ø];
-  let symbols = ['🌭', '🍻', '👨🏼‍💻', '🥑', '🍄', '🍀', '🧩', '💜'];
+  let symbols = ['🚀', '🍺', '💻', '🥑', '🍄', '🍀', '🦊', '💜'];
   let deck = [];
   for (let i = 0; i < 16; i++) {
     deck.push({
@@ -42,10 +42,8 @@ class App extends Component {
   }
 
   render() {
-    let cardsJSX = [];
-    
-    cardsJSX = this.state.deck.map((card, index) => {
-      return <MemoryCard />
+    let cardsJSX = this.state.deck.map((card, index) => {
+      return <MemoryCard symbol={card.symbol} isFlipped={card.isFlipped} key={index}/>
     })
 
     return (
