@@ -1,10 +1,12 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  margin: 0 auto;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  border-radius: 5px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -16,16 +18,14 @@
 .App-header {
   background-color: #282c34;
   min-height: 80px;
+  width: 60vw;
+  border-radius: 5px;;
+  margin-top: 20px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  line-height: 0.1;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -39,6 +39,12 @@
 
 header h4 {
   color: #767676;
+  font-size: 20px;
+}
+
+header h5 {
+  font-size: 20px;
+  margin: 15px;
 }
 
 .row {
@@ -49,6 +55,7 @@ header h4 {
 
 .gameButton {
   margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -14,7 +14,6 @@ class MemoryCard extends Component {
         <div className="MemoryCard" onClick={ this.props.pickCard }>
           <div className={ innerClass }>
             <div className="MemoryCard_back">
-              <img src="https://www.digitalcrafts.com/img/logo-wrench-white.png"></img>
             </div>
             <div className="MemoryCard_front">
               { this.props.symbol }
